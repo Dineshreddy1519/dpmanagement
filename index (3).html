@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DP Management — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg:         #0D1210;
+      --olive:      #6B7C3E;
+      --olive-lt:   #8FA44E;
+      --olive-glow: rgba(107,124,62,0.15);
+      --cream:      #F0EDE6;
+      --sage:       #9EAD85;
+      --muted:      #5A6B4E;
+      --glass:      rgba(240,237,230,0.03);
+      --border:     rgba(143,164,78,0.15);
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Subtle grid ── */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(107,124,62,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(107,124,62,0.06) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    /* ── Olive radial atmosphere ── */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 65% 50% at 50% 50%, rgba(107,124,62,0.16) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 15%, rgba(143,164,78,0.08) 0%, transparent 60%);
+    }
+
+    /* ── Main card ── */
+    .card {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      width: 90%;
+      padding: 70px 64px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      backdrop-filter: blur(16px);
+      text-align: center;
+      animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    /* Thin olive top-bar accent */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--olive-lt), transparent);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .logo-mark {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      border: 1px solid var(--olive);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: var(--olive-lt);
+      box-shadow: 0 0 20px rgba(107,124,62,0.25), inset 0 0 14px rgba(107,124,62,0.08);
+    }
+
+    .logo-text { text-align: left; }
+
+    .logo-text .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.8px;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+
+    .logo-text .tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-top: 3px;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--olive-lt);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--olive);
+      opacity: 0.7;
+    }
+
+    /* ── Headline ── */
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(48px, 8vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--olive-lt);
+    }
+
+    /* ── Sub-copy ── */
+    .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--sage);
+      max-width: 420px;
+      margin: 24px auto 48px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .divider span {
+      width: 40px;
+      height: 1px;
+      background: var(--olive);
+      opacity: 0.5;
+    }
+
+    .divider-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--olive-lt);
+      opacity: 0.8;
+    }
+
+    /* ── Contact ── */
+    .contact-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border: 1px solid var(--olive);
+      border-radius: 2px;
+      text-decoration: none;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(107,124,62,0.18), rgba(143,164,78,0.08));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .contact-link:hover::before { opacity: 1; }
+
+    .contact-link:hover {
+      border-color: var(--olive-lt);
+      box-shadow: 0 0 24px rgba(107,124,62,0.30);
+      transform: translateY(-2px);
+    }
+
+    .contact-link svg {
+      width: 15px;
+      height: 15px;
+      color: var(--olive-lt);
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    .footer-note {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(90,107,78,0.55);
+      letter-spacing: 0.8px;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .card { padding: 48px 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <main class="card">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <div class="logo-mark">DP</div>
+      <div class="logo-text">
+        <div class="brand">DP Management</div>
+        <div class="tagline">End-to-End Services</div>
+      </div>
+    </div>
+
+    <!-- Eyebrow -->
+    <div class="eyebrow">Something great is on the way</div>
+
+    <!-- Headline -->
+    <h1>We Are<br /><em>Coming Soon</em></h1>
+
+    <!-- Sub copy -->
+    <p class="sub">
+      D Management Services is crafting something exceptional. Our end-to-end management platform launches very soon — stay tuned.
+    </p>
+
+    <!-- Ornamental divider -->
+    <div class="divider">
+      <span></span>
+      <div class="divider-dot"></div>
+      <span></span>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-wrap">
+      <div class="contact-label">Get in touch</div>
+      <a class="contact-link" href="mailto:info@dpmanagement.in">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        info@dpmanagement.in
+      </a>
+    </div>
+
+  </main>
+
+  <p class="footer-note">© 2025 DP Management · dpmanagement.in</p>
+
+</body>
+</html>
