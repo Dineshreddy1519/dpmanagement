@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs | DP Management</title>
+  <meta name="description" content="DP Management insights on business operations, automation, AI, technology, and smarter ways to work.">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dp: {
+              olive: "#59651C",
+              oliveDark: "#3B4718",
+              gold: "#C5A059",
+              cream: "#FBF8F1",
+              ink: "#181916",
+              muted: "#626259",
+              line: "#E4E2D8"
+            }
+          },
+          fontFamily: {
+            headline: ["Hanken Grotesk", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: Inter, sans-serif; color:#181916; }
+    .headline { font-family:"Hanken Grotesk", sans-serif; }
+    .mobile-menu { display:none; }
+    .mobile-menu.open { display:block; }
+    [data-nav-link].active { color:#59651C; }
+  </style>
+</head>
+
+<body class="bg-white antialiased">
+
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-dp-line/80 bg-white/90 backdrop-blur-lg">
+    <div class="w-full flex h-20 items-center justify-between px-5 md:h-24 md:px-10 lg:px-16 xl:px-20">
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="DP Management home">
+        <img src="assets/logo.png" alt="DP Management logo" class="h-10 w-10 object-contain md:h-11 md:w-11">
+        <span class="headline text-xl font-bold tracking-tight text-dp-ink md:text-2xl"><span class="text-dp-olive">DP</span> Management</span>
+      </a>
+
+      <nav class="hidden items-center gap-7 rounded-full border border-dp-line bg-white px-7 py-3 shadow-sm md:flex" aria-label="Primary navigation">
+        <a data-nav-link href="index.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">Home</a>
+        <a data-nav-link href="services.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">Services</a>
+        <a data-nav-link href="about.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">About</a>
+        <a data-nav-link href="blogs.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">Blogs</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="contact.html" class="hidden rounded-full bg-dp-oliveDark px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-dp-olive md:inline-flex">Let's Connect <span aria-hidden="true" class="ml-2">→</span></a>
+        <button id="mobile-menu-btn" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-dp-line bg-white md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <span aria-hidden="true" class="text-xl">☰</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu absolute left-0 top-full w-full border-t border-dp-line bg-white shadow-lg md:hidden">
+      <nav class="flex flex-col px-5 py-4">
+        <a data-nav-link href="index.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">Home</a>
+        <a data-nav-link href="services.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">Services</a>
+        <a data-nav-link href="about.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">About</a>
+        <a data-nav-link href="blogs.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">Blogs</a>
+        <a href="contact.html" class="mt-3 inline-flex justify-center rounded-full bg-dp-oliveDark px-6 py-3 text-sm font-semibold text-white">Let's Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 md:pt-24">
+    <section class="bg-dp-cream">
+      <div class="w-full px-5 py-20 md:px-10 md:py-28 lg:px-16 xl:px-20">
+        <div class="max-w-4xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Blogs</p>
+          <h1 class="headline mt-4 text-4xl font-bold tracking-tight md:text-6xl">
+            Ideas for running a <span class="text-dp-olive">smarter business.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-base leading-8 text-dp-muted md:text-lg">
+            Practical insights on operations, AI, automation, technology, and the systems that help businesses work better.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28">
+      <div class="w-full px-5 md:px-10 lg:px-16 xl:px-20">
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-[1.75rem] border border-dp-line bg-dp-cream p-7">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-dp-gold">Coming Soon</p>
+            <h2 class="headline mt-4 text-2xl font-bold">Making business processes easier to automate</h2>
+            <p class="mt-3 text-sm leading-7 text-dp-muted">Practical ways to spot repetitive work and turn it into reliable workflows.</p>
+          </article>
+          <article class="rounded-[1.75rem] border border-dp-line bg-dp-cream p-7">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-dp-gold">Coming Soon</p>
+            <h2 class="headline mt-4 text-2xl font-bold">Where AI agents fit into everyday operations</h2>
+            <p class="mt-3 text-sm leading-7 text-dp-muted">A clear look at where AI agents can help — and where human judgement still matters.</p>
+          </article>
+          <article class="rounded-[1.75rem] border border-dp-line bg-dp-cream p-7">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-dp-gold">Coming Soon</p>
+            <h2 class="headline mt-4 text-2xl font-bold">Building a stronger back office</h2>
+            <p class="mt-3 text-sm leading-7 text-dp-muted">Simple improvements that can make business support functions more dependable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-[#161713] text-white">
+    <div class="w-full px-5 md:px-10 lg:px-16 xl:px-20">
+      <div class="grid gap-12 py-14 md:py-16 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5 min-w-0">
+          <a href="index.html" class="inline-flex items-center">
+            <img src="assets/dp-management-white.png" alt="DP Management" class="h-24 w-auto object-contain sm:h-28 md:h-32 lg:h-36 xl:h-40">
+          </a>
+          <p class="mt-5 max-w-md text-sm leading-7 text-white/55">We take care of the work behind your business so your team can stay focused on what matters.</p>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Quick Links</p>
+          <div class="mt-6 flex flex-col gap-3">
+            <a href="index.html" class="text-sm text-white/60 hover:text-white">Home</a>
+            <a href="services.html" class="text-sm text-white/60 hover:text-white">Services</a>
+            <a href="about.html" class="text-sm text-white/60 hover:text-white">About</a>
+            <a href="blogs.html" class="text-sm text-white hover:text-dp-gold">Blogs</a>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Services</p>
+          <div class="mt-6 flex flex-col gap-3 text-sm text-white/60">
+            <a href="services.html#operations" class="hover:text-white">Operations</a>
+            <a href="services.html#back-office" class="hover:text-white">Back Office</a>
+            <a href="services.html#vendor-management" class="hover:text-white">Vendor Management</a>
+            <a href="services.html#it-support" class="hover:text-white">IT Support</a>
+            <a href="services.html#ai-integrated" class="hover:text-white">AI &amp; Automation</a>
+          </div>
+        </div>
+        <div class="lg:col-span-3 min-w-0">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Contact</p>
+          <div class="mt-6 space-y-4">
+            <a href="mailto:info@dpmanagement.in" class="flex items-center gap-3 min-w-0 text-sm text-white/65 hover:text-white"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-dp-gold">@</span><span class="break-all">info@dpmanagement.in</span></a>
+            <a href="tel:+919177493832" class="flex items-center gap-3 text-sm text-white/65 hover:text-white"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-dp-gold">T</span><span>+91 91774 93832</span></a>
+            <a href="https://dpmanagement.in" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/65 hover:text-white"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-dp-gold">W</span><span class="break-all">dpmanagement.in</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 border-t border-white/10 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="footer-year"></span> DP Management. All rights reserved.</p>
+        <p>Built with purpose. Driven by value.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+      var btn = document.getElementById("mobile-menu-btn");
+      var menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", function () {
+        var open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.querySelector("span").textContent = open ? "×" : "☰";
+      });
+
+      var currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+      document.querySelectorAll("[data-nav-link]").forEach(function (link) {
+        if ((link.getAttribute("href") || "").toLowerCase() === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

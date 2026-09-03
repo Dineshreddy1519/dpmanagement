@@ -1,0 +1,104 @@
+mutation CreateCompany @auth(level: USER) {
+  company_insert(data: { name: "Google", domain: "google.com", industry: "Tech" })
+}
+
+mutation UpdateCompany($id: UUID!, $name: String) @auth(level: USER) {
+  company_update(id: $id, data: { name: $name })
+}
+
+mutation DeleteCompany($id: UUID!) @auth(level: USER) {
+  company_delete(id: $id)
+}
+
+query GetCompany($id: UUID!) @auth(level: USER) {
+  company(id: $id) { name domain industry }
+}
+
+query ListCompanies @auth(level: PUBLIC, insecureReason: "Publicly visible company directory") {
+  companies { name domain }
+}
+
+mutation CreateUser @auth(level: USER) {
+  user_insert(data: { 
+    id_expr: "auth.uid", 
+    email_expr: "auth.token.email", 
+    role: "Member", 
+    company: { id: "00000000-0000-0000-0000-000000000000" } 
+  })
+}
+
+mutation UpdateUser($role: String) @auth(level: USER) {
+  user_update(key: { id_expr: "auth.uid" }, data: { role: $role })
+}
+
+mutation DeleteUser @auth(level: USER) {
+  user_delete(key: { id_expr: "auth.uid" })
+}
+
+query GetUser @auth(level: USER) {
+  user(key: { id_expr: "auth.uid" }) { email role }
+}
+
+query ListUsers @auth(level: USER) {
+  users { email role }
+}
+
+mutation CreateServiceRequest($title: String!, $status: String!) @auth(level: USER) {
+  serviceRequest_insert(data: { title: $title, status: $status, client: { id_expr: "auth.uid" } })
+}
+
+mutation UpdateServiceRequest($id: UUID!, $status: String) @auth(level: USER) {
+  serviceRequest_update(id: $id, data: { status: $status })
+}
+
+mutation DeleteServiceRequest($id: UUID!) @auth(level: USER) {
+  serviceRequest_delete(id: $id)
+}
+
+query GetServiceRequest($id: UUID!) @auth(level: USER) {
+  serviceRequest(id: $id) { title status description }
+}
+
+query ListMyRequests @auth(level: USER) {
+  serviceRequests(where: { client: { id: { eq_expr: "auth.uid" } } }) { title status }
+}
+
+mutation CreateMessage($content: String!, $requestId: UUID!) @auth(level: USER) {
+  message_insert(data: { content: $content, request: { id: $requestId }, sender: { id_expr: "auth.uid" } })
+}
+
+mutation UpdateMessage($id: UUID!, $content: String) @auth(level: USER) {
+  message_update(id: $id, data: { content: $content })
+}
+
+mutation DeleteMessage($id: UUID!) @auth(level: USER) {
+  message_delete(id: $id)
+}
+
+query GetMessage($id: UUID!) @auth(level: USER) {
+  message(id: $id) { content timestamp }
+}
+
+query ListMessages($requestId: UUID!) @auth(level: USER) {
+  messages(where: { requestId: { eq: $requestId } }) { content timestamp }
+}
+
+mutation CreateDocument($fileName: String!, $fileUrl: String!, $requestId: UUID!) @auth(level: USER) {
+  document_insert(data: { fileName: $fileName, fileUrl: $fileUrl, request: { id: $requestId } })
+}
+
+mutation UpdateDocument($id: UUID!, $fileName: String) @auth(level: USER) {
+  document_update(id: $id, data: { fileName: $fileName })
+}
+
+mutation DeleteDocument($id: UUID!) @auth(level: USER) {
+  document_delete(id: $id)
+}
+
+query GetDocument($id: UUID!) @auth(level: USER) {
+  document(id: $id) { fileName fileUrl }
+}
+
+query ListDocuments($requestId: UUID!) @auth(level: USER) {
+  documents(where: { requestId: { eq: $requestId } }) { fileName fileUrl }
+}

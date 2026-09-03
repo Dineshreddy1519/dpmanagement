@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | DP Management</title>
+<meta name="description" content="Get in touch with DP Management to discuss AI websites, automation, agents, or custom LLM solutions for your business.">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#3B4718',
+          'on-primary': '#FFFFFF',
+          secondary: '#7A6335',
+          'secondary-container': '#F1E7D0',
+          'accent-gold': '#C5A059',
+          'surface-bright': '#FFFFFF',
+          'surface-base': '#FBF8F1',
+          'surface-muted': '#F1ECDF',
+          'on-surface': '#1C1C1A',
+          'on-surface-variant': '#5B594E',
+          subtle: '#E7E1D2'
+        },
+        borderColor: {
+          subtle: '#E7E1D2'
+        },
+        fontFamily: {
+          headline: ['"Hanken Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif']
+        },
+        fontSize: {
+          'display-lg': ['4rem', { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '700' }],
+          'headline-lg': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.01em', fontWeight: '700' }],
+          'headline-lg-mobile': ['2.125rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '700' }],
+          'headline-md': ['1.375rem', { lineHeight: '1.3', fontWeight: '700' }],
+          'body-lg': ['1.125rem', { lineHeight: '1.65' }],
+          'body-md': ['1rem', { lineHeight: '1.65' }],
+          'label-md': ['0.9375rem', { lineHeight: '1.4', fontWeight: '600' }],
+          caption: ['0.8125rem', { lineHeight: '1.4', fontWeight: '600' }]
+        },
+        spacing: {
+          'margin-mobile': '1.25rem',
+          'margin-desktop': '4rem',
+          gutter: '2rem'
+        },
+        maxWidth: {
+          'container-max': '80rem'
+        }
+      }
+    }
+  };
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .font-headline-lg, .font-headline-md, .font-display-lg { font-family: '"Hanken Grotesk"', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    line-height: 1;
+  }
+  .brand-mark svg { display: block; width: 40px; height: 40px; }
+  .mobile-menu { display: none; opacity: 0; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease; }
+  .mobile-menu.open { display: block; opacity: 1; transform: translateY(0); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  [data-nav-link].active { color: #C5A059; }
+
+  .field-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant, #5B594E);
+    margin-bottom: 0.5rem;
+  }
+
+  .field-input {
+    width: 100%;
+    background: #FBF8F1;
+    border: 1px solid #E7E1D2;
+    border-radius: 0.875rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.9375rem;
+    color: #1C1C1A;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  .field-input::placeholder { color: #9A968A; }
+
+  .field-input:focus {
+    outline: none;
+    background: #FFFFFF;
+    border-color: #C5A059;
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.18);
+  }
+
+  .field-input:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: #B3432B;
+  }
+
+  textarea.field-input {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .step-rail li:last-child .step-line { display: none; }
+
+  .accordion-item summary { list-style: none; }
+  .accordion-item summary::-webkit-details-marker { display: none; }
+  .accordion-icon { transition: transform 0.2s ease; }
+  .accordion-item[open] .accordion-icon { transform: rotate(180deg); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .mobile-menu { transition: none; }
+  }
+</style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md antialiased selection:bg-accent-gold selection:text-white">
+
+<!-- Shared Header -->
+<header class="fixed inset-x-0 top-0 z-50 border-b border-dp-line/80 bg-white/90 backdrop-blur-lg">
+  <div class="w-full flex h-20 items-center justify-between px-5 md:h-24 md:px-10 lg:px-16 xl:px-20">
+    <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="DP Management home">
+      <img src="assets/logo.png" alt="DP Management logo" class="h-10 w-10 object-contain md:h-11 md:w-11">
+      <span class="headline text-xl font-bold tracking-tight text-dp-ink md:text-2xl">
+        <span class="text-dp-olive">DP</span> Management
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-7 rounded-full border border-dp-line bg-white px-7 py-3 shadow-sm md:flex" aria-label="Primary navigation">
+      <a data-nav-link href="index.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">Home</a>
+      <a data-nav-link href="services.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">Services</a>
+      <a data-nav-link href="about.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">About</a>
+      <a data-nav-link href="blogs.html" class="text-sm font-semibold text-dp-muted transition hover:text-dp-olive">Blogs</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="contact.html" class="hidden rounded-full bg-dp-oliveDark px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-dp-olive md:inline-flex">
+        Let's Connect
+        <span aria-hidden="true" class="ml-2 text-[18px] leading-none">→</span>
+      </a>
+
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-dp-line bg-white text-dp-ink shadow-sm md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <span aria-hidden="true" class="text-xl leading-none">☰</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu absolute left-0 top-full w-full border-t border-dp-line bg-white shadow-lg md:hidden">
+    <nav class="w-full flex flex-col px-5 py-4 md:px-10 lg:px-16" aria-label="Mobile navigation">
+      <a data-nav-link href="index.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">Home</a>
+      <a data-nav-link href="services.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">Services</a>
+      <a data-nav-link href="about.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">About</a>
+      <a data-nav-link href="blogs.html" class="border-b border-dp-line py-3 text-sm font-semibold text-dp-muted">Blogs</a>
+      <a href="contact.html" class="mt-3 inline-flex justify-center rounded-full bg-dp-oliveDark px-6 py-3 text-sm font-semibold text-white">
+        Let's Connect
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20 md:pt-24">
+
+<!-- Page Hero: headline + quick actions | compact contact card -->
+<section class="relative bg-surface-bright overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] py-16 md:py-20">
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-gold/10 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4"></div>
+  <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+
+    <!-- Headline + quick actions -->
+    <div class="lg:col-span-7">
+      <p class="font-label-md text-label-md text-accent-gold uppercase tracking-wider mb-4 reveal">Contact</p>
+      <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6 max-w-xl reveal">
+        Let's map where AI can help <span class="text-accent-gold">first</span>.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-8 reveal">
+        Tell us a little about your team and what's slowing it down. We'll reply within one business day — or skip the form and reach us directly.
+      </p>
+      <div class="flex flex-wrap gap-4 reveal">
+        <a href="mailto:info@dpmanagement.in" class="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-3.5 rounded-full font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-md">
+          <span class="material-symbols-outlined text-[20px]">mail</span>
+          Email us
+        </a>
+        <a href="tel:+919177493832" class="inline-flex items-center gap-2 bg-white text-primary border border-subtle px-7 py-3.5 rounded-full font-label-md text-label-md hover:bg-surface-muted transition-colors shadow-sm">
+          <span class="material-symbols-outlined text-[20px]">call</span>
+          Call us
+        </a>
+      </div>
+    </div>
+
+    <!-- Compact contact-details card -->
+    <div class="lg:col-span-5 reveal">
+      <div class="bg-surface-base border border-subtle rounded-[2rem] p-7 md:p-8">
+        <div class="space-y-5">
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center border border-subtle shrink-0">
+              <span class="material-symbols-outlined text-accent-gold text-[20px]">mail</span>
+            </div>
+            <div class="min-w-0">
+              <p class="text-xs uppercase tracking-wider text-on-surface-variant mb-0.5">Email</p>
+              <a href="mailto:info@dpmanagement.in" class="font-semibold text-on-surface hover:text-accent-gold transition-colors text-sm break-all">info@dpmanagement.in</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center border border-subtle shrink-0">
+              <span class="material-symbols-outlined text-accent-gold text-[20px]">call</span>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-on-surface-variant mb-0.5">Phone</p>
+              <a href="tel:+919177493832" class="font-semibold text-on-surface hover:text-accent-gold transition-colors text-sm">+91 91774 93832</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center border border-subtle shrink-0">
+              <span class="material-symbols-outlined text-accent-gold text-[20px]">location_on</span>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-on-surface-variant mb-0.5">Location</p>
+              <p class="font-semibold text-on-surface text-sm">Kadapa, Andhra Pradesh, India</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 pt-6 border-t border-subtle flex items-center gap-3">
+          <span class="material-symbols-outlined text-accent-gold text-[20px]">schedule</span>
+          <p class="text-sm text-on-surface-variant"><span class="font-semibold text-on-surface">Within one business day</span> — usually sooner.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact form + "what happens next" rail -->
+<section class="pb-16 md:pb-28">
+  <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+    <!-- Form -->
+    <div class="lg:col-span-7 reveal">
+      <form id="contact-form" class="bg-white border border-subtle rounded-[2rem] p-8 md:p-10 shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="field-label" for="name">Full name</label>
+            <input class="field-input" type="text" id="name" name="name" placeholder="Jordan Lee" required>
+          </div>
+          <div>
+            <label class="field-label" for="company">Company</label>
+            <input class="field-input" type="text" id="company" name="company" placeholder="Acme Co.">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="field-label" for="email">Work email</label>
+            <input class="field-input" type="email" id="email" name="email" placeholder="jordan@acme.com" required>
+          </div>
+          <div>
+            <label class="field-label" for="phone">Phone (optional)</label>
+            <input class="field-input" type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+          </div>
+        </div>
+        <div class="mb-8">
+          <label class="field-label" for="message">Tell us about your team</label>
+          <textarea class="field-input" id="message" name="message" rows="5" placeholder="What's taking up your team's time right now?" required></textarea>
+        </div>
+        <button type="submit" class="w-full sm:w-auto bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-md">
+          Send message
+        </button>
+        <p id="form-status" class="hidden mt-5 text-sm text-primary bg-secondary-container rounded-xl p-4" role="status"></p>
+      </form>
+    </div>
+
+    <!-- What happens after you hit send -->
+    <div class="lg:col-span-5 reveal">
+      <div class="bg-white border border-subtle rounded-[2rem] p-8 md:p-9 h-full">
+        <p class="font-label-md text-label-md text-accent-gold uppercase tracking-wider mb-2">After you hit send</p>
+        <h3 class="font-headline-md text-[20px] font-semibold text-on-surface mb-8">What happens next</h3>
+        <ol class="step-rail">
+          <li class="relative pl-14 pb-9">
+            <span class="absolute left-0 top-0 w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold z-10">1</span>
+            <span class="step-line absolute left-[17px] top-9 bottom-0 w-px bg-subtle"></span>
+            <h4 class="font-semibold text-on-surface mb-1.5">A real person reads it, same day</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">No ticket queue, no bot triage — your message goes straight to the team.</p>
+          </li>
+          <li class="relative pl-14 pb-9">
+            <span class="absolute left-0 top-0 w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold z-10">2</span>
+            <span class="step-line absolute left-[17px] top-9 bottom-0 w-px bg-subtle"></span>
+            <h4 class="font-semibold text-on-surface mb-1.5">You hear back within one business day</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Either a direct answer, or a couple of clarifying questions if we need more context.</p>
+          </li>
+          <li class="relative pl-14">
+            <span class="absolute left-0 top-0 w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold z-10">3</span>
+            <h4 class="font-semibold text-on-surface mb-1.5">A short call, only if it's useful</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">If there's a fit, we set up a 20-minute call to map priorities — no pitch deck required.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-16 md:py-28 bg-surface-base rounded-[3rem] md:rounded-[5rem] mx-4 md:mx-8 mb-16">
+  <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-12 text-center max-w-2xl mx-auto reveal">
+      <p class="font-label-md text-label-md text-accent-gold uppercase tracking-wider mb-4">FAQ</p>
+      <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Common questions.</h2>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-4">
+      <details class="accordion-item bg-white border border-subtle rounded-2xl p-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-on-surface">
+          How long does a typical project take?
+          <span class="material-symbols-outlined accordion-icon text-accent-gold">expand_more</span>
+        </summary>
+        <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">Most websites and single automations launch in 2–6 weeks. Agent and LLM projects usually run 4–10 weeks depending on how much of your data needs to be connected.</p>
+      </details>
+      <details class="accordion-item bg-white border border-subtle rounded-2xl p-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-on-surface">
+          Do you work with companies outside India?
+          <span class="material-symbols-outlined accordion-icon text-accent-gold">expand_more</span>
+        </summary>
+        <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">Yes. We work remotely with B2B teams globally, with overlap hours arranged to fit your time zone.</p>
+      </details>
+      <details class="accordion-item bg-white border border-subtle rounded-2xl p-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-on-surface">
+          Can you start with just one service and expand later?
+          <span class="material-symbols-outlined accordion-icon text-accent-gold">expand_more</span>
+        </summary>
+        <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">That's how most engagements start. Many clients begin with a single automation or an AI website, then bring us in for agents or LLM work once the first project proves out.</p>
+      </details>
+      <details class="accordion-item bg-white border border-subtle rounded-2xl p-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-on-surface">
+          Who owns the systems after launch?
+          <span class="material-symbols-outlined accordion-icon text-accent-gold">expand_more</span>
+        </summary>
+        <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">You do. We document everything we build and can hand over full ownership, though most clients keep us on for ongoing monitoring and improvements.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Shared Footer -->
+<footer class="w-full bg-[#161713] text-white">
+  <div class="w-full px-5 md:px-10 lg:px-16 xl:px-20">
+
+    <div class="grid gap-12 py-14 md:py-16 lg:grid-cols-12 lg:gap-16">
+
+      <div class="lg:col-span-5 min-w-0">
+        <a href="index.html" class="inline-flex items-center" aria-label="DP Management home">
+          <img
+            src="assets/logowhite.png"
+            alt="DP Management"
+            class="h-24 w-auto object-contain sm:h-28 md:h-32 lg:h-36 xl:h-40"
+          >
+        </a>
+
+        <p class="mt-5 max-w-md text-sm leading-7 text-white/55">
+          We take care of the work behind your business so your team can stay focused on what matters.
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Quick Links</p>
+        <div class="mt-6 flex flex-col gap-3">
+          <a href="index.html" class="text-sm text-white/60 transition hover:text-white">Home</a>
+          <a href="services.html" class="text-sm text-white/60 transition hover:text-white">Services</a>
+          <a href="about.html" class="text-sm text-white/60 transition hover:text-white">About</a>
+          <a href="blogs.html" class="text-sm text-white/60 transition hover:text-white">Blogs</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Services</p>
+        <div class="mt-6 flex flex-col gap-3 text-sm text-white/60">
+          <a href="services.html#operations" class="transition hover:text-white">Operations</a>
+          <a href="services.html#back-office" class="transition hover:text-white">Back Office</a>
+          <a href="services.html#vendor-management" class="transition hover:text-white">Vendor Management</a>
+          <a href="services.html#it-support" class="transition hover:text-white">IT Support</a>
+          <a href="services.html#ai-integrated" class="transition hover:text-white">AI &amp; Automation</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3 min-w-0">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-dp-gold">Contact</p>
+
+        <div class="mt-6 space-y-4">
+          <a href="mailto:info@dpmanagement.in" class="group flex items-center gap-3 min-w-0">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-dp-gold transition group-hover:border-dp-gold/40 group-hover:bg-dp-gold/10">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5">
+                <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M4 7.5 12 13l8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="min-w-0 break-all text-sm text-white/65 transition group-hover:text-white">info@dpmanagement.in</span>
+          </a>
+
+          <a href="tel:+919177493832" class="group flex items-center gap-3 min-w-0">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-dp-gold transition group-hover:border-dp-gold/40 group-hover:bg-dp-gold/10">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5">
+                <path d="M7.3 3.5h2.9l1.4 4-2 1.6a14.7 14.7 0 0 0 5.3 5.3l1.6-2 4 1.4v2.9c0 1.1-.9 2-2 2A16.5 16.5 0 0 1 5.3 5.5c0-1.1.9-2 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="min-w-0 text-sm text-white/65 transition group-hover:text-white">+91 91774 93832</span>
+          </a>
+
+          <a href="https://dpmanagement.in" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 min-w-0">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-dp-gold transition group-hover:border-dp-gold/40 group-hover:bg-dp-gold/10">
+              <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M3 12h18M12 3c2.4 2.5 3.7 5.5 3.7 9S14.4 18.5 12 21c-2.4-2.5-3.7-5.5-3.7-9S9.6 5.5 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="min-w-0 break-all text-sm text-white/65 transition group-hover:text-white">dpmanagement.in</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 border-t border-white/10 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span id="footer-year"></span> DP Management. All rights reserved.</p>
+      <p>Built with purpose. Driven by value.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Footer year
+  var yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  var menuBtn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', function () {
+      var isOpen = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuBtn.querySelector('.material-symbols-outlined').textContent = isOpen ? 'close' : 'menu';
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
+      });
+    });
+  }
+
+  // Highlight active nav link
+  var currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  document.querySelectorAll('[data-nav-link]').forEach(function (link) {
+    var href = (link.getAttribute('href') || '').toLowerCase();
+    if (href === currentPage) {
+      link.classList.add('active');
+    }
+  });
+
+  // Scroll-reveal animation
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+  // Hard failsafe so content never gets stuck hidden
+  setTimeout(function () {
+    document.querySelectorAll('.reveal:not(.in-view)').forEach(function (el) {
+      el.classList.add('in-view');
+    });
+  }, 1200);
+
+  // Contact form submit
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  if (form && status) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      status.textContent = "Thanks — that's on its way. We'll reply within one business day.";
+      status.classList.remove('hidden');
+      form.reset();
+    });
+  }
+</script>
+
+
+<script>
+  (function () {
+    var yearEl = document.getElementById("footer-year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    var menuBtn = document.getElementById("mobile-menu-btn");
+    var menu = document.getElementById("mobile-menu");
+
+    if (menuBtn && menu) {
+      menuBtn.addEventListener("click", function () {
+        var open = menu.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        menuBtn.querySelector("span").textContent = open ? "×" : "☰";
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          menu.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded", "false");
+          menuBtn.querySelector("span").textContent = "☰";
+        });
+      });
+    }
+
+    var currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+    document.querySelectorAll("[data-nav-link]").forEach(function (link) {
+      var href = (link.getAttribute("href") || "").split("#")[0].toLowerCase();
+      if (href === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  })();
+</script>
+</body>
+</html>

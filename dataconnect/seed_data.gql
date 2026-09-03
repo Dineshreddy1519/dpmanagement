@@ -1,0 +1,27 @@
+mutation SeedDatabase @transaction {
+  company_insertMany(data: [
+    { name: "Acme Corp", domain: "acme.com", industry: "Manufacturing" },
+    { name: "Globex", domain: "globex.com", industry: "Tech" },
+    { name: "Soylent Corp", domain: "soylent.com", industry: "Food" }
+  ])
+  user_insertMany(data: [
+    { email: "alice@acme.com", role: "admin", company: { id: "00000000-0000-0000-0000-000000000001" } },
+    { email: "bob@globex.com", role: "user", company: { id: "00000000-0000-0000-0000-000000000002" } },
+    { email: "charlie@soylent.com", role: "user", company: { id: "00000000-0000-0000-0000-000000000003" } }
+  ])
+  serviceRequest_insertMany(data: [
+    { title: "Network Setup", status: "open", budgetEstimate: 500.0, client: { id: "00000000-0000-0000-0000-000000000001" } },
+    { title: "Website Audit", status: "in_progress", budgetEstimate: 1200.0, client: { id: "00000000-0000-0000-0000-000000000002" } },
+    { title: "Logistics Support", status: "closed", budgetEstimate: 3000.0, client: { id: "00000000-0000-0000-0000-000000000003" } }
+  ])
+  message_insertMany(data: [
+    { content: "Hello, looking for help.", sender: { id: "00000000-0000-0000-0000-000000000001" }, request: { id: "00000000-0000-0000-0000-000000000001" } },
+    { content: "Understood, working on it.", sender: { id: "00000000-0000-0000-0000-000000000002" }, request: { id: "00000000-0000-0000-0000-000000000001" } },
+    { content: "Audit completed successfully.", sender: { id: "00000000-0000-0000-0000-000000000003" }, request: { id: "00000000-0000-0000-0000-000000000002" } }
+  ])
+  document_insertMany(data: [
+    { fileName: "contract.pdf", fileUrl: "s3://docs/contract.pdf", request: { id: "00000000-0000-0000-0000-000000000001" } },
+    { fileName: "report.docx", fileUrl: "s3://docs/report.docx", request: { id: "00000000-0000-0000-0000-000000000002" } },
+    { fileName: "invoice.pdf", fileUrl: "s3://docs/invoice.pdf", request: { id: "00000000-0000-0000-0000-000000000003" } }
+  ])
+}

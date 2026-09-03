@@ -1,0 +1,35 @@
+type Company @table {
+  name: String!
+  domain: String!
+  contactEmail: String
+  industry: String
+}
+
+type User @table {
+  email: String!
+  role: String!
+  company: Company!
+}
+
+type ServiceRequest @table {
+  title: String!
+  status: String!
+  description: String
+  budgetEstimate: Float
+  createdAt: Timestamp
+  client: User!
+}
+
+type Message @table {
+  content: String!
+  timestamp: Timestamp
+  sender: User!
+  request: ServiceRequest!
+}
+
+type Document @table {
+  fileName: String!
+  fileUrl: String!
+  uploadedAt: Timestamp
+  request: ServiceRequest!
+}
