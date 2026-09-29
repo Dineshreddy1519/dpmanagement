@@ -30,7 +30,7 @@
           subtle: '#E7E1D2'
         },
         fontFamily: {
-          headline: ['"Hanken Grotesk"', 'sans-serif'],
+          headline: ['Hanken Grotesk', 'sans-serif'],
           body: ['Inter', 'sans-serif']
         },
         fontSize: {
@@ -57,7 +57,7 @@
 </script>
 <style>
   body { font-family: 'Inter', sans-serif; }
-  .font-headline-lg, .font-headline-md, .font-display-lg { font-family: '"Hanken Grotesk"', sans-serif; }
+  .font-headline-lg, .font-headline-md, .font-display-lg { font-family: 'Hanken Grotesk', sans-serif; }
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     line-height: 1;
@@ -85,7 +85,7 @@
       <a data-nav-link href="index.html" class="font-label-md text-label-md text-on-surface-variant hover:text-accent-gold transition-colors">Home</a>
       <a data-nav-link href="services.html" class="font-label-md text-label-md text-on-surface-variant hover:text-accent-gold transition-colors">Services</a>
       <a data-nav-link href="about.html" class="font-label-md text-label-md text-on-surface-variant hover:text-accent-gold transition-colors">About</a>
-      <a data-nav-link href="contact.html" class="font-label-md text-label-md text-on-surface-variant hover:text-accent-gold transition-colors">Contact</a>
+      <a data-nav-link href="blogs.html" class="font-label-md text-label-md text-on-surface-variant hover:text-accent-gold transition-colors">Blogs</a>
     </nav>
     <div class="flex items-center gap-3">
       <a href="contact.html" class="hidden md:inline-flex bg-primary text-on-primary px-8 py-3 rounded-full hover:bg-primary/90 transition-colors font-label-md text-label-md shadow-md">Get Started</a>
@@ -99,7 +99,7 @@
       <a data-nav-link href="index.html" class="font-label-md text-label-md text-on-surface-variant py-2">Home</a>
       <a data-nav-link href="services.html" class="font-label-md text-label-md text-on-surface-variant py-2">Services</a>
       <a data-nav-link href="about.html" class="font-label-md text-label-md text-on-surface-variant py-2">About</a>
-      <a data-nav-link href="contact.html" class="font-label-md text-label-md text-on-surface-variant py-2">Contact</a>
+      <a data-nav-link href="blogs.html" class="font-label-md text-label-md text-on-surface-variant py-2">Blogs</a>
       <a href="contact.html" class="bg-primary text-on-primary px-6 py-3 rounded-full text-center font-label-md text-label-md mt-2">Get Started</a>
     </nav>
   </div>
@@ -136,14 +136,14 @@
         <h3 class="font-headline-md text-[20px] font-semibold text-on-surface mb-2">Operations Management</h3>
         <p class="text-sm text-on-surface-variant leading-relaxed">Streamlining day-to-day business operations for efficiency, accountability, and scalability.</p>
       </div>
-      <div class="reveal bg-surface-base border border-subtle rounded-[1.75rem] p-8">
+      <div id="back-office" class="reveal scroll-mt-32 bg-surface-base border border-subtle rounded-[1.75rem] p-8">
         <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-primary text-2xl">groups</span>
         </div>
         <h3 class="font-headline-md text-[20px] font-semibold text-on-surface mb-2">Admin &amp; Back Office Support</h3>
         <p class="text-sm text-on-surface-variant leading-relaxed">Reliable administrative and back-office support to keep your business running smoothly.</p>
       </div>
-      <div class="reveal bg-surface-base border border-subtle rounded-[1.75rem] p-8">
+      <div id="vendor-management" class="reveal scroll-mt-32 bg-surface-base border border-subtle rounded-[1.75rem] p-8">
         <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-primary text-2xl">trending_up</span>
         </div>
@@ -157,14 +157,14 @@
         <h3 class="font-headline-md text-[20px] font-semibold text-on-surface mb-2">Business Process Outsourcing</h3>
         <p class="text-sm text-on-surface-variant leading-relaxed">Tailored outsourcing solutions to reduce costs, improve productivity, and drive growth.</p>
       </div>
-      <div class="reveal bg-surface-base border border-subtle rounded-[1.75rem] p-8">
+      <div id="it-support" class="reveal scroll-mt-32 bg-surface-base border border-subtle rounded-[1.75rem] p-8">
         <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-primary text-2xl">computer</span>
         </div>
         <h3 class="font-headline-md text-[20px] font-semibold text-on-surface mb-2">Digital &amp; IT Support</h3>
         <p class="text-sm text-on-surface-variant leading-relaxed">Technology solutions and IT support to strengthen your business infrastructure.</p>
       </div>
-      <div class="reveal bg-surface-base border border-subtle rounded-[1.75rem] p-8">
+      <div id="reporting" class="reveal scroll-mt-32 bg-surface-base border border-subtle rounded-[1.75rem] p-8">
         <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-primary text-2xl">monitoring</span>
         </div>
@@ -172,7 +172,7 @@
         <p class="text-sm text-on-surface-variant leading-relaxed">Data-driven insights and reporting to support better decision-making.</p>
       </div>
     </div>
-    <div class="mt-6 reveal bg-primary rounded-[1.75rem] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+    <div id="ai-integrated" class="mt-6 scroll-mt-32 reveal bg-primary rounded-[1.75rem] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6">
       <div class="w-14 h-14 rounded-full bg-white/15 flex items-center justify-center shrink-0">
         <span class="material-symbols-outlined text-white text-2xl">smart_toy</span>
       </div>
@@ -185,7 +185,7 @@
 </section>
 
 <!-- Featured: Operations Management -->
-<section class="py-16 md:py-28 bg-surface-base rounded-[3rem] md:rounded-[5rem] mx-4 md:mx-8" id="operations">
+<section class="scroll-mt-24 py-16 md:py-28 bg-surface-base rounded-[3rem] md:rounded-[5rem] mx-4 md:mx-8" id="operations">
   <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
     <div class="lg:col-span-6 order-2 lg:order-1 reveal">
       <div class="bg-white border border-subtle rounded-[2rem] p-8 space-y-4">
@@ -233,7 +233,7 @@
 </section>
 
 <!-- Featured: Business Process Outsourcing -->
-<section class="py-16 md:py-28 bg-surface-bright" id="bpo">
+<section class="scroll-mt-24 py-16 md:py-28 bg-surface-bright" id="bpo">
   <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
     <div class="lg:col-span-6 reveal">
       <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-8">
@@ -437,6 +437,7 @@
       <div class="flex flex-col gap-3">
         <a href="about.html" class="text-on-surface-variant hover:text-accent-gold text-sm transition-colors">About Us</a>
         <a href="services.html" class="text-on-surface-variant hover:text-accent-gold text-sm transition-colors">Services</a>
+        <a href="blogs.html" class="text-on-surface-variant hover:text-accent-gold text-sm transition-colors">Blogs</a>
         <a href="contact.html" class="text-on-surface-variant hover:text-accent-gold text-sm transition-colors">Contact</a>
       </div>
     </div>

@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+
+# Page links use lowercase filenames; serve the capitalised files for them.
+[[redirects]]
+  from = "/contact.html"
+  to = "/Contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/services.html"
+  to = "/Services.html"
+  status = 200
